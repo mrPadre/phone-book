@@ -1,0 +1,31 @@
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  background-color: darkgoldenrod;
+  max-width: 300px;
+  border-radius: 10px;
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid red;
+    margin: 10px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__interests {
+    width: 200px;
+    height: 150px;
+    display: flex;
+  }
+}
