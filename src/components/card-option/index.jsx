@@ -10,16 +10,14 @@ class CardOption extends Component {
 
     }
     changeOption = () => {
-        this.setState({options:this.props.cardOptions})
+        this.setState({options: this.props.cardOptions})
     };
 
     render() {
 
         return (
             <div className="option__body">
-                <div className="option__avatar">
-                    {this.state.options.avatar}
-                </div>
+                <img src={this.state.options.avatar} className="option__avatar" alt = '' />
                 <div className="option__info">
                     {this.state.options.name}
                     {this.state.options.phone}
