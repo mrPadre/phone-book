@@ -11,12 +11,14 @@ const Select = (props) => {
               id={htmlFor}
               value={props.value}
               onChange={props.onChange}
+              name="avatar"
           >
               {props.options.map((option, index) => {
                   return (
                       <option
                           value={option.value}
-                          id={option.id + index}
+                          id={option}
+                          key={index}
                       >
                           {option.text}
                       </option>

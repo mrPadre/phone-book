@@ -18,21 +18,24 @@
     justify-content: flex-start;
     border-radius: 20px;
     box-shadow: 2px 3px 2px black;
+    position: relative;
   }
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   &__inputs {
     width: 200px;
-    height: 20px;
+    height: 30px;
     border-radius: 20px;
     padding-left: 10px;
     margin-left: 10px;
     box-shadow: none;
     border-style: solid;
+    font-size: 16px;
   }
   &__line {
     width: 300px;
@@ -40,6 +43,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    font-size: 14px;
   }
   &__footer {
     width: 300px;
@@ -49,12 +53,15 @@
     padding: 10px;
   }
   &__success {
-    width: 100px;
+    width: 150px;
     height: 40px;
     background-color: rgba(32, 238, 33, 0.6);
     border-radius: 5px;
     border-style: solid;
     margin-top: 10px;
+    box-shadow: 2px 3px 2px black;
+    font-size: 16px;
+    cursor: pointer;
   }
   &__close {
     width: 100px;
@@ -65,4 +72,15 @@
     margin-top: 10px;
   }
 
+}
+.btn__close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  &-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
 }

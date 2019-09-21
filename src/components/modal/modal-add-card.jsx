@@ -40,7 +40,7 @@ class ModalAddCard extends Component {
     };
 
     handleAccess = () => {
-        this.props.handleAddCard(this.state.avatar,this.state.name,this.state.phone,this.state.email,this.state.interests);
+        this.props.newCard(this.state.avatar, this.state.name, this.state.phone, this.state.email, this.state.interests);
         this.props.hideModal();
     };
 
@@ -60,7 +60,6 @@ class ModalAddCard extends Component {
                     onClick={() => this.handleAccess()}
 
                 >Добавить</button>
-                <button type='button' className="modal__close" onClick={() => this.props.hideModal()} > Закрыть </button>
             </div>
         );
         const select = <Select

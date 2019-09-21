@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Avatar from "../../services/avatars";
+import Icon, {iconObj} from "../../services/interests";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faMusic, faGuitar, faBriefcase, faFish, faRoute, faCampground, faSchool, faWineBottle, faFilm, faCar, faBicycle, faMotorcycle, faGamepad} from "@fortawesome/free-solid-svg-icons";
 
 const { smith, pablo, monia, alex, john, katia, sindy, vania } = {...Avatar};
 
@@ -7,25 +10,11 @@ class CardList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            card: props.cards,
-            active: false,
-            index: []
+            index: ''
         }
 
     };
-
-    handleAddCard = (avatar, name, phone, email, interests) => {
-        this.state.card.push({
-            avatar: avatar,
-            name: name,
-            phone: phone,
-            email: email,
-            interests: [interests]
-        })
-
-    };
-
-    activeCard = (i) => {
+    handleSelect = (i) => {
         this.setState({index: i});
     };
 
@@ -33,31 +22,37 @@ class CardList extends Component {
         this.props.select(card);
     };
 
-    doubleFunc = (card, i) => {
-        this.selectCard(card);
-        this.activeCard (i);
+    doubleFunc = (i) => {
+        this.selectCard(i);
+        this.handleSelect(i);
     };
 
     render() {
-
+        if (!this.props.resetIndex){
+            this.state.index = '';
+        }
         return (
+
             <div className="card__list">
-                {this.state.card.map((card, i) => {
+                {this.props.card.map((card, i) => {
                     const cardItem = ['card__item'];
                     const cardArrow = ['card_arrow'];
                     if (this.state.index === i){
                         cardItem.push("active");
                         cardArrow.push("visible");
                     }
+
+
                     return (
-                        <div className={cardItem.join(' ')} key={i}
-                             onClick={() => this.doubleFunc(card, i)}>
+                        <div className={cardItem.join(' ')} key={"card" + i}
+                             onClick={() => this.doubleFunc(i)}>
                             <div className={cardArrow.join(' ')} > </div>
                             <div className="card__avabox">
 
                             <img className="card__avatar" src={card.avatar} alt=""/>
 
                             </div>
+
                             <div className="card__info">
                                 <p className="card__name">
                                     {card.name}
@@ -67,7 +62,9 @@ class CardList extends Component {
                                 </p>
                             </div>
                             <div className="card__interests">
-                                {card.interests.join(', ')}
+                                {card.interests.map((item) => (
+                                    <FontAwesomeIcon icon={item} className="interests__icon" key={i}/>
+                                ))}
                             </div>
                         </div>
                     )

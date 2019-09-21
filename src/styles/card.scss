@@ -6,10 +6,12 @@
   &__list{
     width: 50%;
     border: 1px solid black;
+    position: relative;
   }
   &__options{
     width: 50%;
     border: 1px solid blue;
+    position: relative;
   }
   &__avatar{
     width: 75px;
@@ -51,6 +53,11 @@
   }
   &__interests {
     width: 30%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
   }
 }
 .active {
