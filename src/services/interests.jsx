@@ -17,14 +17,26 @@ export const iconObj = [
     {type: faGamepad, name: 'Игры'},
 ];
 
-const Icon = (props) => {
+class Icon extends React.Component{
+    constructor (props) {
+        super (props);
+        this.state = {}
+    }
+
+
+render() {
 
     return(
         iconObj.map((icon, i) => {
+            let card = this.props.card;
+            let filter = card.filter(items =>
+                items.interests.includes(icon.type)
+            );
 
             return (
-                <div className="interests__box" onClick={() => props.handleInterestsFunc(icon)}>
-                    <FontAwesomeIcon icon={icon.type} className="interests__icon" key={i}/>
+                <div className='interests__box' key={'ico'+i}  id={icon.name + i} onClick={() => this.props.handleInterestsFunc(icon)}>
+                    <div className="interests__count">{filter.length}</div>
+                    <FontAwesomeIcon icon={icon.type} className="interests__icon" key={icon.name  + i}/>
                     <p className="interests__name">
                         {icon.name}
                     </p>
@@ -34,7 +46,7 @@ const Icon = (props) => {
 
     )
 
-
-};
+}
+}
 export default Icon;
 

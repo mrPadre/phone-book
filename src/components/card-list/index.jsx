@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import Avatar from "../../services/avatars";
-import Icon, {iconObj} from "../../services/interests";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMusic, faGuitar, faBriefcase, faFish, faRoute, faCampground, faSchool, faWineBottle, faFilm, faCar, faBicycle, faMotorcycle, faGamepad} from "@fortawesome/free-solid-svg-icons";
-
-const { smith, pablo, monia, alex, john, katia, sindy, vania } = {...Avatar};
 
 class CardList extends Component {
     constructor(props) {
@@ -28,12 +23,27 @@ class CardList extends Component {
     };
 
     render() {
+
         if (!this.props.resetIndex){
             this.state.index = '';
         }
+
+        this.props.card.sort((a, b) => {
+            let nameA=a.name.toLowerCase();
+            let nameB=b.name.toLowerCase();
+
+            if (nameA < nameB)
+                return -1;
+            if (nameA > nameB)
+                return 1;
+
+        }) ;
         return (
 
             <div className="card__list">
+                <div className="test__filter">
+
+                </div>
                 {this.props.card.map((card, i) => {
                     const cardItem = ['card__item'];
                     const cardArrow = ['card_arrow'];
@@ -43,10 +53,13 @@ class CardList extends Component {
                     }
 
 
+
+
+
                     return (
                         <div className={cardItem.join(' ')} key={"card" + i}
                              onClick={() => this.doubleFunc(i)}>
-                            <div className={cardArrow.join(' ')} > </div>
+
                             <div className="card__avabox">
 
                             <img className="card__avatar" src={card.avatar} alt=""/>
@@ -63,12 +76,12 @@ class CardList extends Component {
                             </div>
                             <div className="card__interests">
                                 {card.interests.map((item) => (
-                                    <FontAwesomeIcon icon={item} className="interests__icon" key={i}/>
+                                    <FontAwesomeIcon icon={item} className="interests__icon" key={item.iconName + i}/>
                                 ))}
                             </div>
                         </div>
                     )
-                })
+                    })
              }
          </div>
         )

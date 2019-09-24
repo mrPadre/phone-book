@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 5px 15px;
   background-color: rgb(207, 244, 33);
   max-width: 400px;
   border-radius: 20px;
+  height: 590px;
 
   &__avatar {
     width: 150px;
@@ -16,11 +17,22 @@
   &__info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
   }
   &__name {
     font-size: 20px;
     font-weight: bold;
+  }
+  &__phone {
+    font-size: 18px;
+    margin: 10px;
+    a {
+      text-decoration: none;
+      color: black;
+      ;
+    }
   }
   &__interests {
     width: 250px;
@@ -31,6 +43,19 @@
     margin: 10px;
     font-size: 30px;
 
+  &-box {
+    position: relative;
+  }
+  }
+  &__title{
+    width: 100%;
+    background-color: black;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 5px 0;
   }
   &__menu {
     height: 40px;

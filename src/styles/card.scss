@@ -5,12 +5,16 @@
 
   &__list{
     width: 50%;
-    border: 1px solid black;
+    min-width: 350px;
+    height: 590px;
     position: relative;
+    overflow: scroll;
+    scrollbar-width: none;
   }
   &__options{
     width: 50%;
-    border: 1px solid blue;
+    min-width: 300px;
+    height: 590px;
     position: relative;
   }
   &__avatar{
@@ -49,14 +53,15 @@
     width: 20%;
   }
   &__info {
-    width: 50%;
+    width: 40%;
   }
   &__interests {
-    width: 30%;
+    width: 40%;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     font-size: 20px;
-    color: white;
+    color: green;
     padding: 10px;
   }
 }
@@ -69,7 +74,8 @@
 }
 .visible {
   position: absolute;
-  right: -20px;
+  right: -15px;
   border: 10px solid transparent; border-right: 10px solid rgb(207, 244, 33);
   display: block;
+
 }

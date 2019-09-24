@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowAltCircleLeft, faCogs} from "@fortawesome/free-solid-svg-icons";
+import {
+    faArrowAltCircleLeft,
+    faCogs,
+    faEnvelope,
+    faTimes
+} from "@fortawesome/free-solid-svg-icons";
 import OptionSetting from "../option-setting";
 import {iconObj} from "../../services/interests";
+import defAvatar from "../../images/avatars/ava4.jpg";
+import {faPhone} from "@fortawesome/free-solid-svg-icons/faPhone";
 
 
 class CardOption extends Component {
@@ -31,6 +38,17 @@ class CardOption extends Component {
     };
 
     render() {
+        if (!this.props.options) {
+            this.state.settingShow  = false;
+        }
+        let ava = '';
+        if (this.props.optionCard.avatar === undefined){
+            ava = defAvatar
+        } else {
+            ava = this.props.optionCard.avatar;
+        }
+        let phone = `tel:${this.props.optionCard.phone}`;
+        let email = `mailto:${this.props.optionCard.email}`;
 
         return (
             <div className="card__options">
@@ -52,22 +70,34 @@ class CardOption extends Component {
                             className="option__menu-icon"
                             onClick ={this.showSettings}/>
                     </div>
-                    <img src={this.props.optionCard.avatar}
+                    <img src={ava}
                          className="option__avatar" alt=''/>
                     <div className="option__info">
                         <p className="option__name">
                             {this.props.optionCard.name}
                         </p>
-                        <p className="option__phone">
-                            Телефон: {this.props.optionCard.phone}
-                        </p>
-                        <p className="option__email">
-                            Почта: {this.props.optionCard.email}
-                        </p>
+                        <div className="option__phone">
+                            <FontAwesomeIcon icon={faPhone}/> <a href={phone} >{this.props.optionCard.phone}</a>
+
+                        </div>
+                        <div className="option__phone">
+                            <FontAwesomeIcon icon={faEnvelope}/> <a href={email} >{this.props.optionCard.email}</a>
+
+                        </div>
                     </div>
+                    <span className="option__title">Общие интересы:</span>
                     <div className="option__interests">
-                        {this.props.optionCard.interests.map((item,i) => (
-                            <FontAwesomeIcon icon={item} className="interests__icon" key={3+i}/>
+
+                        {this.props.optionCard.interests.map((item,i) => (  <div
+                className="interests__options-box"
+                draggable="true"
+                id = {"drag" + i}
+                key={item + i}
+                >
+                                <FontAwesomeIcon icon={item} className="interests__icon" key={'3'+i}/>
+                                <FontAwesomeIcon icon={faTimes} key={'close'+ i} className="interests__close" onClick={() => this.props.handleIconClose(i)}/>
+                            </div>
+
                         ))}
                     </div>
                 </div>

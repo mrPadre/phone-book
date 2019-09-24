@@ -5,7 +5,8 @@ import Avatar from "./services/avatars";
 import CardOption from "./components/card-option";
 import ModalEditCard from "./components/modal/modal-edit-card";
 import Icon, {iconObj} from "./services/interests";
-import DndWindow from "./components/test-dnd/main.dnd";
+import Header from "./components/header";
+
 
 const {smith, pablo, monia, john, katia, sindy, vania, alex} = Avatar;
 
@@ -32,11 +33,11 @@ constructor (props) {
                 interests: []
             }
         ],
-        optionCard: [],
+        optionCard: [ ],
         options: false,
         index: 0,
         showModalEdit: false,
-        sort: []
+        filter: [],
 
 
 };
@@ -79,47 +80,57 @@ constructor (props) {
         let i = this.state.index;
         let cards = [...this.state.card];
         let card = {...cards[i]};
-      if (this.state.options) {
 
-          if (card.interests.includes(icon.type) === false) {
-              card.interests.push(icon.type);
-          } else {
-              card.interests.splice(icon.type, icon.type);
-          }
-          cards[i] = card;
-          this.setState({card: cards})
-      }
+        if (this.state.options) {
 
+            if (card.interests.includes(icon.type) === false) {
+                card.interests.push(icon.type);
+
+            } else if (!this.state.options) {
+                card.interests.splice(icon.type, icon.type);
+            }
+            cards[i] = card;
+            this.setState({card: cards})
+        } else {
+            this.setState({filter: icon.type})
+            console.log(this.state.filter);
+        }
+
+            };
+
+    handleIconClose = (i) => {
+        let cards = [...this.state.card];
+        let index = this.state.index;
+        let card = cards[index];
+        card.interests.splice(i, 1);
+        cards[index] = card;
+        this.setState({card: cards})
     };
 
     handleAddCards = (avatar, name, phone, email, interests) => {
-        this.state.card.push({
+        let cards = [...this.state.card];
+
+        let card = {
             avatar: avatar,
             name: name,
             phone: phone,
             email: email,
-            interests: [interests]
-        })
-    };
-
-
-    handleEdit = () => {
-        const editCard = this.state.card;
-        editCard[this.state.index] = {
-            avatar: this.state.avatar,
-            name: this.state.name,
-            phone: this.state.phone,
-            email: this.state.email,
-            interests: this.state.interests
+            interests: [],
         };
-        this.setState({card: editCard})
+        cards.push(card);
+        this.setState({card: cards});
+
     };
+
+
+
     handleDeleteCard = () => {
         const itemDelete = this.state.card;
         let i = this.state.index;
         if (itemDelete.length > 1) {
             itemDelete.splice(i, 1);
-            this.setState({card: itemDelete})
+            this.setState({card: itemDelete});
+            this.optionClose();
         }
     };
 
@@ -129,6 +140,11 @@ constructor (props) {
     };
 
     render () {
+        let card = this.state.card;
+        let filter = card.filter(items =>
+            items.interests.includes(this.state.filter)
+        );
+        console.log(filter);
         const index = this.state.index;
         let mainCard = this.state.card[index];
 
@@ -138,15 +154,11 @@ constructor (props) {
            this.resetIndex();
             }
 
-        console.log(this.state.card.interests);
-
 
     return (
 
         <div>
-            <button className="card__add-btn" onClick={this.handleShow}>
-                Добавить контакт
-            </button>
+            <Header handleShow={this.handleShow}/>
             <div className="card">
                     <CardList
                         select={this.addCard}
@@ -155,6 +167,7 @@ constructor (props) {
                         resetIndex={this.state.options}
                         activeItem={this.handleSelect}
                         optionCard={mainCard}
+                        filter={filter}
                     />
                <CardOption
                     options={this.state.options}
@@ -162,23 +175,23 @@ constructor (props) {
                     optionClose={this.optionClose}
                     allCard={this.state.card}
                     indexSelectCard={index}
-                    handleEdit={this.handleEdit}
                     handleDeleteCard={this.handleDeleteCard}
                     openEditModal={this.showEditModal}
+                    handleIconClose={this.handleIconClose}
                />
             </div>
-            <div className="interests">
-                <Icon handleInterestsFunc={this.handleInterestsFunc}/>
-
+            <div className="interests" id={'interests-1'}>
+                <Icon handleInterestsFunc={this.handleInterestsFunc} card={this.state.card}/>
             </div>
+
             <ModalAddCard show={this.state.show}
                           hideModal={this.handleClose}
-                          avatar={'smith'} newCard={this.handleAddCards}/>
+                          avatar={'smith'}
+                          newCard={this.handleAddCards}/>
             <ModalEditCard
                 showEditModal={this.state.showModalEdit}
                 closeEditModal={this.closeEditModal}
                 optionCard={mainCard}
-                handleEdit={this.handleEdit}
                 onChangeInput={this.handleInputEdit}
                 allCard={this.state.card}
                 indexSelectCard={index}

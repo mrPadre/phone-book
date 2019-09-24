@@ -3,6 +3,7 @@
 @import './option.scss';
 @import "./select";
 @import './interests.scss';
+@import './header.scss';
 
 
 
@@ -11,7 +12,12 @@ body {
   margin: 30px 10%;
   padding: 0;
   font-family: "Arial";
+
 }
 button, input, textarea {
   font-family: "Times New Roman";
+}
+::-webkit-scrollbar { /* chrome based */
+  width: 0px;  /* ширина scrollbar'a */
+  background: transparent;  /* опционально */
 }

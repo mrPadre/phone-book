@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from "./modal";
 import Avatar from "../../services/avatars";
 import Select from "../select/select";
+import defAvatar from "../../images/avatars/ava5.jpg";
 
 const {alex, vania, sindy, katia, john, monia, pablo, smith} = Avatar;
 const avatarArr = [];
@@ -30,10 +31,13 @@ class ModalEditCard extends Component {
 
 
     render () {
+        let ava = '';
+        if (this.props.optionCard.avatar === undefined){
+            ava = defAvatar;
+        } else {
+            ava = this.props.optionCard.avatar;
+        }
 
-
-
-        console.log(this.props.optionCard);
         const modalStyle = {
             width: '600px',
             height: '600px'
@@ -68,7 +72,7 @@ class ModalEditCard extends Component {
                 show={this.props.showEditModal}
                 hideModal={this.props.closeEditModal}>
                 <div className="modal__content" >
-                    <img className="option__avatar" src={this.props.optionCard.avatar} alt=""/>
+                    <img className="option__avatar" src={ava} alt=""/>
                     {avaSelect}
                     <div className="modal__line">
                         Имя: <input

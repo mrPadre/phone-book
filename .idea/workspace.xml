@@ -2,27 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2877850b-e7ae-4e03-8a4c-162324846474" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/modal/modal-edit-card.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/option-setting/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/test-dnd/column.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/test-dnd/initial-data.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/test-dnd/main.dnd.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/test-dnd/task.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/interests.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/interests.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dnd/draggable/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dnd/droppable/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/header/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card-list/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card-list/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card-option/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card-option/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/modal/modal-add-card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal-add-card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/select/select.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/select/select.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal-edit-card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal-edit-card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/interests.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/interests.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/card.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/interests.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/interests.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/option.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/option.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,7 +119,12 @@
       <workItem from="1568893513930" duration="5272000" />
       <workItem from="1568899285071" duration="20186000" />
       <workItem from="1568959015447" duration="12948000" />
-      <workItem from="1569056281262" duration="31145000" />
+      <workItem from="1569056281262" duration="31397000" />
+      <workItem from="1569110097959" duration="4470000" />
+      <workItem from="1569141920630" duration="12197000" />
+      <workItem from="1569163609809" duration="35167000" />
+      <workItem from="1569259371822" duration="7757000" />
+      <workItem from="1569347927285" duration="7215000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил окно информации о контакте">
       <created>1568481683992</created>

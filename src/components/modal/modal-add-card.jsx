@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from "./modal";
 import Avatar from "../../services/avatars";
 import Select from "../select/select";
+import {faMusic} from "@fortawesome/free-solid-svg-icons";
 
 const {alex, vania, sindy, katia, john, monia, pablo, smith} = Avatar;
 const avatar = [];
@@ -103,14 +104,7 @@ class ModalAddCard extends Component {
                      onChange={this.onChangeEmail}
                  />
                  </div>
-                 <div className="modal__line">
-                     Интересы: <input
-                     type="text"
-                     value={this.state.interests}
-                     className="modal__inputs"
-                     onChange={this.onChangeInterests}
-                 />
-                 </div>
+
             </div>
             </Modal>
         )
