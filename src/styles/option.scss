@@ -1,12 +1,13 @@
 .option {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   margin: 5px 15px;
   background-color: rgb(207, 244, 33);
-  max-width: 400px;
   border-radius: 20px;
-  height: 590px;
+  max-width: 400px;
+  height: 620px;
 
   &__avatar {
     width: 150px;
@@ -35,13 +36,13 @@
     }
   }
   &__interests {
-    width: 250px;
+    width: 350px;
     height: 150px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 10px;
-    font-size: 30px;
+    font-size: 25px;
 
   &-box {
     position: relative;
@@ -56,6 +57,19 @@
     justify-content: center;
     color: white;
     padding: 5px 0;
+    margin-top: 20px;
+  }
+  &__delete {
+    height: 30px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    &-icon {
+      color: crimson;
+      font-size: 25px;
+    }
   }
   &__menu {
     height: 40px;
@@ -80,8 +94,8 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -20px;
-  left: 45%;
+  top: 0px;
+  left: 320px;
   transform: rotate(20deg);
   &__btn-delete{
     width: 150px;

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Ava0 from '../images/avatars/ava0.jpg';
 import Ava1 from '../images/avatars/ava1.png';
 import Ava2 from '../images/avatars/ava2.jpg';

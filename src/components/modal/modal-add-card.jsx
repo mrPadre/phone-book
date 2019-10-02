@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Modal from "./modal";
 import Avatar from "../../services/avatars";
 import Select from "../select/select";
-import {faMusic} from "@fortawesome/free-solid-svg-icons";
 
 const {alex, vania, sindy, katia, john, monia, pablo, smith} = Avatar;
 const avatar = [];

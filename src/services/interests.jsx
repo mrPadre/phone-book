@@ -20,23 +20,31 @@ export const iconObj = [
 class Icon extends React.Component{
     constructor (props) {
         super (props);
-        this.state = {}
+        this.state = {
+        }
     }
 
-
-render() {
+    render() {
+        let card = this.props.card;
 
     return(
+
         iconObj.map((icon, i) => {
-            let card = this.props.card;
-            let filter = card.filter(items =>
-                items.interests.includes(icon.type)
-            );
+
+
+            let filter = card.filter(items => {
+                return items.interests.some( type => {
+                    return icon.type.iconName === type.iconName;
+                });
+            });
+
+
 
             return (
-                <div className='interests__box' key={'ico'+i}  id={icon.name + i} onClick={() => this.props.handleInterestsFunc(icon)}>
+                <div className='interests__box' key={Math.random()}  id={icon.name + i} onClick={() => this.props.handleInterestsFunc(icon)}>
                     <div className="interests__count">{filter.length}</div>
-                    <FontAwesomeIcon icon={icon.type} className="interests__icon" key={icon.name  + i}/>
+                    <FontAwesomeIcon icon={icon.type} className="interests__icon" key={Math.random()  + i} />
+
                     <p className="interests__name">
                         {icon.name}
                     </p>

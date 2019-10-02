@@ -1,17 +1,29 @@
 .header {
   display: flex;
-  position: absolute;
   justify-content: center;
-  height: 100%;
-  width: 100px;
+  height: 40px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
   left: 0;
-  top: 30px;
-  &__title {
-    margin: 5px 15px;
+  z-index: 200;
+
+  &__text {
+    margin: 10px 15px;
+    color: white;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  &__arrow {
+    margin: 0 5px;
   }
   &__add-btn {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-color: white;
     border-radius: 50%;
     border-style: solid;
@@ -19,9 +31,22 @@
     font-size: 16px;
     cursor: pointer;
     margin: 5px;
+    z-index: 20;
+
   }
   &__icon {
     font-size: 25px;
+  }
+  &__filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-icon{
+      font-size: 18px;
+      color: white;
+      margin-left: 10px;
+    }
   }
 
 }

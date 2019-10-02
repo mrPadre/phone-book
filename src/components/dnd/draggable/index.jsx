@@ -4,7 +4,7 @@ class Draggable extends React.Component {
 
 
     drag = (e) => {
-       e.dataTransfer.setData('transfer', e.target.id)
+        e.dataTransfer.setData('transfer', e.target.id);
     };
 
     noAllowDrop =(e)=> {
@@ -13,7 +13,7 @@ class Draggable extends React.Component {
 
     render () {
         return(
-            <div style={this.props.style} className={this.props.className} draggable= "true" onDragStart={this.drag} id={this.props.id} onDragOver={this.noAllowDrop}>
+            <div style={this.props.style} draggable= "true" onDragStart={this.drag} id={this.props.id} onDragOver={this.noAllowDrop}>
                 {this.props.children}
             </div>
         )

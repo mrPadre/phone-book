@@ -1,21 +1,24 @@
 .card {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  padding: 0;
+  margin-top: 40px;
+
 
   &__list{
     width: 50%;
-    min-width: 350px;
-    height: 590px;
+    min-width: 370px;
     position: relative;
     overflow: scroll;
     scrollbar-width: none;
+    height: 630px;
+
   }
   &__options{
     width: 50%;
-    min-width: 300px;
-    height: 590px;
+    min-width: 350px;
     position: relative;
+    height: 630px;
   }
   &__avatar{
     width: 75px;
@@ -78,4 +81,7 @@
   border: 10px solid transparent; border-right: 10px solid rgb(207, 244, 33);
   display: block;
 
+}
+.hide {
+  display: none;
 }

@@ -4,12 +4,13 @@
 @import "./select";
 @import './interests.scss';
 @import './header.scss';
+@import './menu.scss';
 
 
 
 
 body {
-  margin: 30px 10%;
+  margin: 0;
   padding: 0;
   font-family: "Arial";
 
@@ -20,4 +21,88 @@ button, input, textarea {
 ::-webkit-scrollbar { /* chrome based */
   width: 0px;  /* ширина scrollbar'a */
   background: transparent;  /* опционально */
+}
+.container {
+
+  &__interests{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-x: scroll;
+    border-top: 2px solid black;
+    background-color: white;
+    scrollbar-width: none;
+  }
+}
+@media screen and (max-width: 770px) {
+  .interests {
+    &__box {
+      width: 60px;
+    }
+    &__name {
+      display: none;
+    }
+  }
+  .card {
+    overflow-x: scroll;
+    &__name {
+      font-size: 14px;
+    }
+    &__interests {
+      font-size: 12px;
+    }
+  }
+  .setting {
+    left: 250px;
+  }
+  .option {
+    &__interests {
+      font-size: 20px;
+    }
+  }
+}
+@media screen and (max-width: 380px) {
+  .interests {
+
+    width: 800px;
+    height: 65px;
+    &__box {
+      width: 40px;
+      font-size: 25px;
+    }
+    &__count {
+      font-size: 10px;
+      width: 14px;
+      height: 14px;
+    }
+    &__name {
+      display: none;
+    }
+  }
+  .card {
+    &__list {
+      height: 550px;
+    }
+    &__item {
+      width: 350px;
+    }
+    overflow-x: scroll;
+    &__name {
+      font-size: 14px;
+    }
+    &__interests {
+      font-size: 12px;
+    }
+  }
+  .setting {
+    left: 250px;
+  }
+  .option {
+    height: 550px;
+    &__interests {
+      font-size: 20px;
+      width: 300px;
+    }
+  }
 }

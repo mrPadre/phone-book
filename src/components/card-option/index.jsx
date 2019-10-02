@@ -4,12 +4,13 @@ import {
     faArrowAltCircleLeft,
     faCogs,
     faEnvelope,
-    faTimes
+    faTimes, faTrashAlt
 } from "@fortawesome/free-solid-svg-icons";
 import OptionSetting from "../option-setting";
-import {iconObj} from "../../services/interests";
 import defAvatar from "../../images/avatars/ava4.jpg";
 import {faPhone} from "@fortawesome/free-solid-svg-icons/faPhone";
+import Droppable from "../dnd/droppable";
+import Draggable from "../dnd/draggable";
 
 
 class CardOption extends Component {
@@ -86,20 +87,28 @@ class CardOption extends Component {
                         </div>
                     </div>
                     <span className="option__title">Общие интересы:</span>
+
                     <div className="option__interests">
+
 
                         {this.props.optionCard.interests.map((item,i) => (  <div
                 className="interests__options-box"
                 draggable="true"
-                id = {"drag" + i}
                 key={item + i}
                 >
-                                <FontAwesomeIcon icon={item} className="interests__icon" key={'3'+i}/>
-                                <FontAwesomeIcon icon={faTimes} key={'close'+ i} className="interests__close" onClick={() => this.props.handleIconClose(i)}/>
-                            </div>
+                            <Draggable id={i} >
+                                <FontAwesomeIcon icon={item} className="interests__icon" key={'3'+i} id={i}/>
 
+                                <FontAwesomeIcon icon={faTimes} key={'close'+ i} className="interests__close" onClick={() => this.props.handleIconClose(i)} id={i}/>
+                            </Draggable>
+                            </div>
                         ))}
                     </div>
+                    <Droppable  id={'drop1'} close={(event) => this.props.handleIconClose(event)}>
+                    <div className="option__delete">
+                        <FontAwesomeIcon icon={faTrashAlt} className="option__delete-icon"/>
+                    </div>
+                    </Droppable>
                 </div>
 
             </div>

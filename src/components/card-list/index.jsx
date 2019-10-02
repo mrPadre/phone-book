@@ -5,12 +5,9 @@ class CardList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: ''
+
         }
 
-    };
-    handleSelect = (i) => {
-        this.setState({index: i});
     };
 
     selectCard = (card) => {
@@ -19,45 +16,43 @@ class CardList extends Component {
 
     doubleFunc = (i) => {
         this.selectCard(i);
-        this.handleSelect(i);
+        this.props.handleSelect(i);
     };
+
+
 
     render() {
 
-        if (!this.props.resetIndex){
-            this.state.index = '';
-        }
 
-        this.props.card.sort((a, b) => {
-            let nameA=a.name.toLowerCase();
-            let nameB=b.name.toLowerCase();
+        let newCard = this.props.card;
 
-            if (nameA < nameB)
-                return -1;
-            if (nameA > nameB)
-                return 1;
 
-        }) ;
         return (
 
             <div className="card__list">
                 <div className="test__filter">
 
                 </div>
-                {this.props.card.map((card, i) => {
-                    const cardItem = ['card__item'];
+                {newCard.map((card, i) => {
+                    let cardItem = ['card__item'];
                     const cardArrow = ['card_arrow'];
-                    if (this.state.index === i){
+                    let filter = this.props.filter;
+                    let someIcon = card.interests.some(item => {
+                        return item.iconName === filter.iconName
+                    });
+                    if (this.props.index === i){
                         cardItem.push("active");
                         cardArrow.push("visible");
                     }
+                    if (filter !== '') {
 
+                            if (!someIcon) {
+                               cardItem.push("hide");
 
-
-
-
+                        }
+                    }
                     return (
-                        <div className={cardItem.join(' ')} key={"card" + i}
+                        <div className={cardItem.join(' ')} key={Math.random() + i}
                              onClick={() => this.doubleFunc(i)}>
 
                             <div className="card__avabox">
@@ -76,12 +71,14 @@ class CardList extends Component {
                             </div>
                             <div className="card__interests">
                                 {card.interests.map((item) => (
-                                    <FontAwesomeIcon icon={item} className="interests__icon" key={item.iconName + i}/>
+                                    <FontAwesomeIcon icon={item} className="interests__icon" key={Math.random() + i}/>
                                 ))}
                             </div>
                         </div>
                     )
+
                     })
+
              }
          </div>
         )
